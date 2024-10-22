@@ -65,16 +65,19 @@ while True:
         # ask name and age again
         continue
     else:
-        # Prompt to try again
-        try_again = input("Try again. (Yes/No) ")
-        # If yes, then ask name and age again
-        if try_again == "Yes":
-            continue
-        # If no, then display oldest and break program
-        elif try_again == "No":
-            oldest = find_oldest(data_entries)
-            print(f"The current oldest person is {oldest}.")
-            break
-        # Invalid inputs continues loop to check the answer's validity
-        else:
-            print("Please input a valid answer.")
+        # Loop for continuous checking of invalid user input
+        while True:
+            # Prompt to try again
+            try_again = input("Try again. (Yes/No) ")
+            # If yes, then exit loop and ask name and age again
+            if try_again == "Yes":
+                break
+            # If no, then display oldest and exit program
+            elif try_again == "No":
+                oldest = find_oldest(data_entries)
+                print(f"The current oldest person is {oldest}.")
+                # not 'break' because it will only break the loop and ask for a name again
+                exit()
+            # Invalid inputs continues loop to check the answer's validity
+            else:
+                print("Please input a valid answer.")
