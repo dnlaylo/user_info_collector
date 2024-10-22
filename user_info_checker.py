@@ -53,7 +53,7 @@ while True:
 
         except ValueError as e:
             print(e)
-
+                
     # Catching valid and invalid inputs for new entries
     if new_entry == "No":
         # display the name and age of the oldest person
@@ -61,6 +61,20 @@ while True:
         print(f"The current oldest person is {oldest}.")
         # stop the program
         break
-
-    if new_entry != "Yes":
-        print("Please input a valid answer.")
+    elif new_entry == "Yes":
+        # ask name and age again
+        continue
+    else:
+        # Prompt to try again
+        try_again = input("Try again. (Yes/No) ")
+        # If yes, then ask name and age again
+        if try_again == "Yes":
+            continue
+        # If no, then display oldest and break program
+        elif try_again == "No":
+            oldest = find_oldest(data_entries)
+            print(f"The current oldest person is {oldest}.")
+            break
+        # Invalid inputs continues loop to check the answer's validity
+        else:
+            print("Please input a valid answer.")
