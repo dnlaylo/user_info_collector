@@ -18,9 +18,22 @@ while True:
             age = int(input("Please enter your age: "))
             if age < 18 or age > 65:
                 raise
+            
+            # Store user entries
+            data_entries[name] = {"age" : age}
+
+            # Ask user for new entry
+            new_entry = input("Do you want to input data again? (Yes/No) ")
+            break
 
         except:
             print("Error")
+
+    # Catching valid and invalid inputs for new entries
+    if new_entry == "No":
+        break
+    if new_entry != "Yes":
+        print("Please input a valid answer.")
 
 # Ask the user if they want to input another entry
     # If “Yes”
