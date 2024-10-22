@@ -1,3 +1,9 @@
+# Method for finding the oldest person (modified method from finding highest number program)
+def find_oldest(data_entries):
+    # Initial values for oldest person to compare first entry
+    oldest_name = None
+    oldest_age = 0
+
 # Array for storing all entries
 data_entries = {}
 
@@ -31,13 +37,11 @@ while True:
 
     # Catching valid and invalid inputs for new entries
     if new_entry == "No":
+        # display the name and age of the oldest person
+        oldest = find_oldest(data_entries)
+        print(f"The current oldest person is {oldest}.")
+        # stop the program
         break
+
     if new_entry != "Yes":
         print("Please input a valid answer.")
-
-# Ask the user if they want to input another entry
-    # If “Yes”
-        # ask the user again for name and age entries
-    # If "No"
-        # display the name and age of the oldest person.
-        # stop the program
