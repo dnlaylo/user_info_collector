@@ -31,10 +31,18 @@ while True:
             if len(name) < 3 or not name[0].isupper():
                 raise ValueError("At least 3 letters long and make sure to capitalize first letter. Please input a valid name.")
             
-            # Check if age is valid, if not, raise an error
-            age = int(input("Please enter your age: "))
-            if age < 18 or age > 65:
-                raise ValueError("Too young, too old, or invalid input. Please input a valid age.")
+            # Loop to continuously validate age
+            while True:
+                try:
+                    # Check if age is valid, if not, raise an error
+                    age = int(input("Please enter your age: "))
+                    if age < 18 or age > 65:
+                        raise ValueError("Too young, too old, or invalid input. Please input a valid age.")
+                    
+                    # break loop if valid
+                    break
+                except ValueError as e:
+                    print(e)
             
             # Store user entries
             data_entries[name] = {"age" : age}
