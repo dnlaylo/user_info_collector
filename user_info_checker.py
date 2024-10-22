@@ -12,6 +12,9 @@ def find_oldest(data_entries):
         if age > oldest_age:
             oldest_name = {name}
             oldest_age = age
+        # If current oldest and new entry's age are equal, add to list
+        elif age == oldest_age:
+            oldest_name.add(name)
 
     # Return oldest person
     return oldest_name, oldest_age
