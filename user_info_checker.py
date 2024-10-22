@@ -23,11 +23,11 @@ data_entries = {}
 while True:
     # Loop for validation of inputs
     while True:
+        # Ask the user input, defined valid name and age, and error message display
         try:
-            # Ask the user input, defined valid name and age, and error message display
-
             # Check if name is valid, if not, raise an error
             name = input("Please enter your name: ")
+            # Name must be at least 3 letters and first letter must be capitalized
             if len(name) < 3 or not name[0].isupper():
                 raise ValueError("At least 3 letters long and make sure to capitalize first letter. Please input a valid name.")
             
@@ -36,11 +36,13 @@ while True:
                 try:
                     # Check if age is valid, if not, raise an error
                     age = int(input("Please enter your age: "))
+                    # Age must not be less than 18 and greater than 65
                     if age < 18 or age > 65:
                         raise ValueError("Too young, too old, or invalid input. Please input a valid age.")
                     
                     # break loop if valid
                     break
+
                 except ValueError as e:
                     print(e)
             
@@ -49,6 +51,7 @@ while True:
 
             # Ask user for new entry
             new_entry = input("Do you want to input data again? (Yes/No) ")
+            
             break
 
         except ValueError as e:
@@ -69,6 +72,7 @@ while True:
         while True:
             # Prompt to try again
             try_again = input("Try again. (Yes/No) ")
+
             # If yes, then exit loop and ask name and age again
             if try_again == "Yes":
                 break
