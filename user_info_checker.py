@@ -4,6 +4,18 @@ def find_oldest(data_entries):
     oldest_name = None
     oldest_age = 0
 
+    # Loop for reassigning the current oldest person in the array
+    for name, data in data_entries.items():
+        age = data["age"]
+
+        # If age is greater than current oldest, reassign the oldest person
+        if age > oldest_age:
+            oldest_name = {name}
+            oldest_age = age
+
+    # Return oldest person
+    return oldest_name, oldest_age
+
 # Array for storing all entries
 data_entries = {}
 
@@ -12,10 +24,8 @@ while True:
     # Loop for validation of inputs
     while True:
         try:
-            # Ask the user to input name and age
-            # Have a valid name and valid age
-            # Display error message if the input is not valid
-
+            # Ask the user input, defined valid name and age, and error message display
+            
             # Check if name is valid, if not, raise an error
             name = input("Please enter your name: ")
             if len(name) < 3 or not name[0].isupper():
